@@ -12,13 +12,37 @@ public class Main {
 
         //Realiza aquí el bucle para abrir las ventanas que quieras (recomiendo for)
 
+        int ventanaAncho = 200;
+        int ventanaAlto = 150;
 
+        for (int x = 0; x<ancho; x+=ventanaAncho){ // eje x
+            for(int y = 0; y<alto; y+=ventanaAlto){ // eje y
+                trastada(x,y,0);
+            }
+        }
 
         //Aquí deberás hacer otro bucle para que el usuario acierte el número (recomiendo do-while)
+        Scanner sc = new Scanner(System.in);
+        int intento;
+        int numeroScreto = (int)(Math.random()*10)+1;
+        System.out.println("Adivina el numero del 1 al 10 para cerrar las ventas");
+        do {
+
+            intento = sc.nextInt();
+            if (intento>numeroScreto){
+                System.out.println("El numero screto es menor");
+            }else if (intento<numeroScreto){
+                System.out.println("el nmero secreto es mayor ");
+            }else {
+                System.out.println("NICE!!");
+                System.exit(0);
+                System.out.println("Te ha llevo " + intento +" intentos");
+            }
+        } while (numeroScreto!=intento);
 
 
         //Para cerrar todas las ventanas y finalizar el programa descomenta la siguiente linea
-        //System.exit(0);
+        System.exit(0);
     }
 
     public static void trastada(int ancho, int alto, int i){
